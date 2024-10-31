@@ -1,28 +1,28 @@
 import { useState } from 'react';
 import { View, TextInput, Button ,StyleSheet } from 'react-native';
 
-function GoalInput(props){
-    const [goalText, setGoalText] = useState('');
+function TodoInput(props){
+    const [todoText, setTodoText] = useState('');
 
-    function GoalTextHandler(enteredText){
-        setGoalText(enteredText);
+    function TodoHandler(enteredText){
+        setTodoText(enteredText);
     }
 
-    function addGoalHandler(){
-        props.onAddGoal(goalText);
-        setGoalText('');
+    function addTodoHandler(){
+        props.onAddTodo(todoText);
+        setTodoText('');
     }
     
     return(
         <View style={styles.inputContainer}>
-            <TextInput style={styles.textInput} placeholder='Your Goal!' value={goalText} onChangeText={GoalTextHandler}/>
-            <Button title="Add Goal" onPress={addGoalHandler}/>
+            <TextInput style={styles.textInput} placeholder='Type here!' value={todoText} onChangeText={TodoHandler}/>
+            <Button title="Add Todo" onPress={addTodoHandler}/>
         </View>
     );
 }
 
 
-export default GoalInput;
+export default TodoInput;
 
 
 const styles = StyleSheet.create({

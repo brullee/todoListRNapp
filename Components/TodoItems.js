@@ -1,30 +1,25 @@
 import { StyleSheet, View, Text, Pressable } from "react-native";
 
-function GoalItems(props){
-    // function deleteGoalHandler(){
-    //     return props.onDeleteItem(props.id);
-    // }
-
+function TodoItems(props){
     return(
-    // <Pressable onPress={deleteGoalHandler}>
     <Pressable onPress={props.onDeleteItem.bind(this, props.id)}>
-        <View style={styles.goalItems}>
-            <Text style={styles.goalText}>{props.text}</Text>  
+        <View style={styles.todoItems}>
+            <Text style={styles.todoText}>{props.text}</Text>  
         </View>
     </Pressable>
     );
 }
 
-export default GoalItems;
+export default TodoItems;
 
 const styles = StyleSheet.create({
-    goalItems:{
+    todoItems:{
         margin: 8,
         padding: 8,
         borderRadius:6,
         backgroundColor: '#740938',
     },
-    goalText:{
+    todoText:{
         color: 'white',
     }
 });

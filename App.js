@@ -1,28 +1,28 @@
 import { useState } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 
-import GoalInput from './Components/GoalInput';
-import GoalItems from './Components/Goaltems';
+import TodoInput from './Components/TodoInput';
+import TodoItems from './Components/TodoItems';
 
 export default function App() {
-  const [coarseGoals, setCoarseGoals] = useState([]);
+  const [todoItems, setTodoItems] = useState([]);
 
-  function addGoalHandler(goalText){
-    setCoarseGoals(currentGoals =>  [...currentGoals, {text: goalText,  id: coarseGoals.length.toString()}]); 
+  function addTodoHandler(todoText){
+    setTodoItems(currentList =>  [...currentList, {text: todoText,  id: todoItems.length.toString()}]); 
   }
 
-  function deleteGoalHandler(id){
-    setCoarseGoals(currentGoals => coarseGoals.filter(goal =>  goal.id !== id));
+  function deleteItemHandler(id){
+    setTodoItems(currentList => todoItems.filter(todoItem =>  todoItem.id !== id));
   }
 
   return (
     <View style ={styles.appContainer}>
-      <GoalInput onAddGoal={addGoalHandler}/>
+      <TodoInput onAddTodo={addTodoHandler}/>
 
-      <View style={styles.goalsContainer}>
-      <FlatList data={coarseGoals} renderItem={itemData=>{
+      <View style={styles.todosContainer}>
+      <FlatList data={todoItems} renderItem={itemData=>{
         return (
-          <GoalItems text={itemData.item.text} id={itemData.item.id} onDeleteItem={deleteGoalHandler}/>
+          <TodoItems text={itemData.item.text} id={itemData.item.id} onDeleteItem={deleteItemHandler}/>
         );
         }}
         keyExtractor={(item, index)=> {
@@ -40,7 +40,7 @@ appContainer:{
   paddingTop: 50,
   paddingHorizontal: 16,
 },
-goalsContainer:{
+todosContainer:{
   flex: 10,
 }
 });
