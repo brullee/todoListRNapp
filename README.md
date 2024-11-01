@@ -1,1 +1,1 @@
-simple todo list app I made while learning react native basics
+simple todo list app I made with expo while learning react native basics
