@@ -1,2 +1,2 @@
 simple todo list app I made with expo while learning react native basics:
-  Styling, Key Assigning & Handling, ScrollView, FlatList, StatusBar, Require and Bind.
+  Styling, ScrollView, Key Assigning & Handling using FlatList, StatusBar, Require() and Bind().
